@@ -139,6 +139,7 @@ class EditHandler(BaseHandler):
         show = yield tornado.gen.Task(c.hget,"showing", "movies")
         self.render("edit.html", entrees=e, desserts=d, beverages=b, show=show)
 
+    #this can definitely be more modularized (args with *a)
     @tornado.web.asynchronous
     @tornado.gen.coroutine
     def post(self):
