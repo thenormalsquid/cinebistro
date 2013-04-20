@@ -1,0 +1,35 @@
+<form method="post" class="form-horizontal">
+<div class="control-group">
+	<p>Entrees</p>
+	{% for key,val in entrees.iteritems() %}
+	<div class="controls">
+		<input type="textarea" name="{{_(key)}}" value="{{_(val)}}">
+	 </div>
+	{% end %}
+</div>
+
+<div class="control-group">
+{% for key,val in desserts.iteritems() %}
+	<div class="controls">
+		<input type="textarea" name="{{_(key)}}" value="{{_(val)}}">
+	</div>	
+	{% end %}
+</div>
+
+<div class="control-group">
+{% for key,val in beverages.iteritems() %}
+	<div class="controls">
+		<input type="textarea" name="{{_(key)}}" value="{{_(val)}}">
+	</div>	
+{% end %}
+</div>
+<div class="control-group">
+<div class="controls">
+	<input type="text" name="showing" value="{{_(show)}}">
+</div>
+</div>
+ <div class="control-group">
+	<div class="controls">
+		<button type="submit" class="btn btn-info">Save</button>	
+	</div>
+</div>

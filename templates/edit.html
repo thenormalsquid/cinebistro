@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit the menu</title>
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+	<style>
+		.content{
+			margin-left: 70px;
+		}
+		.cancel{
+			margin-top: -50px;
+		}
+		.title{
+			margin-left: 175px;
+		}
+		.desc{
+			margin-left: 200px;
+		}
+
+	</style>
+</head>
+<body>
+<div class="offset3">
+<h2>Edit the Menu</h2>
+<form method="post" class="form-horizontal">
+	<div class="entrees-edit">
+		<h3>Entrees</h3>
+		<p><span class="title">Title</span><span class="desc">Description</spzn></p>
+	</div>
+	{% for entree in entrees %}
+		{% set i,j = entree.iteritems() %}
+		{% module Entrees(entree, i[0], j[0]) %}
+	{% end %}
+
+	<div class="desserts-edit">
+		<h3>Desserts</h3>
+		<p><span class="title">Title</span><span class="desc">Description</span></p>
+	</div>
+	{% for dessert in desserts %}
+		{% set i,j = dessert.iteritems() %}
+		{% module Desserts(dessert, i[0], j[0]) %}
+	{% end %}
+
+	<div class="beverages-edit">
+		<h3>Beverages</h3>
+		<p><span class="title">Title</span><span class="desc">Description</span></p>
+	</div>
+	{% for beverage in beverages %}
+		{% set i,j = beverage.iteritems() %}
+		{% module Beverages(beverage, i[0], j[0]) %}
+	{% end %}
+
+	<div class="showing-edit">
+		<h3>Edit Current Movie</h3>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<input type="text" class="showing-input" name="showing" value="{{show}}">
+		</div>
+ 	</div>
+
+ 	<div class="control-group">
+		<div class="controls">
+			<input type="submit" class="btn btn-info" value="Save">
+		</div>
+ 	</div>
+	{% module xsrf_form_html() %}	
+</form>
+<div class="cancel offset3">
+	<a href="/" class="btn">Cancel</a>
+</div>
+</div>
+</body>
+</html>

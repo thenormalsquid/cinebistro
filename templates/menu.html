@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block showing %}
+	{{show}}
+{% end %}
+
+{% block food %}
+<div class="menu-front">
+<h1>Menu</h1>
+<h3>Entrees</h3>
+	<ul class="food-menu">
+		{% for e in entrees %}
+			{% set i,j = e.iteritems() %}
+		 	{% if e[i[0]] or e[j[0]] != '' %}	
+				{% module Menu(i[0], j[0], e) %}
+			{% else %}
+				{% continue %}
+			{% end %}
+		{% end %}
+	</ul>
+<h3>Dessert</h3>
+	<ul class="food-menu">
+		{% for e in desserts %}
+			{% set i,j = e.iteritems() %}
+			{% if e[i[0]] or e[j[0]] != '' %}	
+				{% module Menu(i[0], j[0], e) %}
+			{% else %}
+				{% continue %}
+			{% end %}
+		{% end %}
+	</ul>
+<h3>Beverages</h3>
+	<ul class="food-menu">
+		{% for e in beverages %}
+			{% set i,j = e.iteritems() %}
+			{% if e[i[0]] or e[j[0]] != '' %}	
+				{% module Menu(i[0], j[0], e) %}
+			{% else %}
+				{% continue %}
+			{% end %}
+		{% end %}
+	</ul>
+</div>
+{% end %}
